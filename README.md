@@ -1,5 +1,5 @@
 # About
-This container runs a remote sandboxed environment with firefox and autofirma. It can be accessed with any web browser.
+This container runs a remote [sandboxed environment with firefox](https://github.com/linuxserver/docker-firefox) and autofirma. It can be accessed with any web browser.
 
 # Usage
 + `./run.sh`
