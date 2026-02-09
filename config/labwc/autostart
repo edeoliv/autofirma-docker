@@ -1,0 +1,4 @@
+#!/bin/bash
+pcmanfm-qt --desktop &
+
+/usr/bin/firefox ${FIREFOX_CLI}

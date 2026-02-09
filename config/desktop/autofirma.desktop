@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Autofirma
+Exec=/usr/bin/autofirma
+Icon=/usr/share/icons/hicolor/48x48/apps/openjdk-11.png
+Type=Application
+Terminal=false
+Categories=Office;
