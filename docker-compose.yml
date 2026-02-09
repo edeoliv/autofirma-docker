@@ -3,12 +3,24 @@ services:
   firefox:
     build: .
     ports:
-      - "5800:3000"
+      - 5000:3000
+      - 5001:3001
     volumes:
       - "/docker/appdata/firefox:/config:rw"
       - "./certificates:/config/certificates:ro"
-      - "./config:/config/.config/openbox/:rw"
       - "./documents:/config/documents/:rw"
+      # - "./config/labwc/autostart:/config/.config/labwc/autostart:ro"
+      - "./config/desktop:/config/Desktop:ro"
+    devices:
+      # NOTE: Only Open Source drivers are supported IE (Intel,AMDGPU).
+      # If using nvidea, modify it to this: https://github.com/linuxserver/docker-firefox#nvidia-gpu-support
+      - "/dev/dri:/dev/dri"
+    shm_size: "1gb"
     environment:
       FIREFOX_CLI: https://www.sededgsfp.gob.es/es/Paginas/TestAutofirma.aspx
-      _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=gasp
+      # CUSTOM_HTTPS_PORT: 5801
+      # CUSTOM_WS_PORT: 5801
+      TZ: "Europe/Madrid"
+      PUID: 1000
+      PGID: 1000
+      DRINODE: /dev/dri/renderD128
