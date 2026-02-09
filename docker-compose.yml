@@ -9,8 +9,6 @@ services:
       - "/docker/appdata/firefox:/config:rw"
       - "./certificates:/config/certificates:ro"
       - "./documents:/config/documents/:rw"
-      # - "./config/labwc/autostart:/config/.config/labwc/autostart:ro"
-      - "./config/desktop:/config/Desktop:ro"
     devices:
       # NOTE: Only Open Source drivers are supported IE (Intel,AMDGPU).
       # If using nvidea, modify it to this: https://github.com/linuxserver/docker-firefox#nvidia-gpu-support

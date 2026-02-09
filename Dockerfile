@@ -41,7 +41,9 @@ ENV PIXELFLUX_WAYLAND=true
 # Set favicon to autofirma icon
 RUN cp /usr/lib/Autofirma/Autofirma.png /usr/share/selkies/www/icon.png
 ENV TITLE="AutoFirma-Docker"
+
 VOLUME /config/certificates
+VOLUME /config/documents
 
 # Override the files copied by /init. Since it's run on the entrypoint, a build-time COPY won't work!
 RUN echo "cp /defaults/autostart /config/.config/labwc/autostart" >> /init
