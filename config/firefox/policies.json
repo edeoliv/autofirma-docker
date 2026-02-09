@@ -1,0 +1,7 @@
+{
+  "policies": {
+    "Certificates": {
+      "Install": ["Autofirma_ROOT.cer", "/usr/lib/Autofirma/Autofirma_ROOT.cer"]
+    }
+  }
+}

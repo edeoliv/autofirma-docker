@@ -18,7 +18,8 @@ Autofirma is required by many Spanish government websites for online operations,
 + It patches the client's web browser with javascript
 + They do not provide reproducible builds nor hashes for its built binaries
 + The built binary is downloaded from a website with a non-trusted HTTPS certificate controlled by the spanish government itself which has been known in the past to enable sketchy MITM operations
-+ And many other concerns
++ Many websites [example here](https://sede.carm.es/cryptoApplet/ayuda/probarautofirma.html) require trusting the root certificate of autofirma `/usr/lib/Autofirma/Autofirma_ROOT.cer` in the browser, which further enables MITM, and there's absolutely no intention to remove this requirement (see ctt-gob-es/clienteafirma/issues/167)
++ And other concerns
 
 This setup minimizes risk by running inside a container, instead of in your host machine.
 
@@ -31,8 +32,4 @@ This setup minimizes risk by running inside a container, instead of in your host
 
 ---
 # TODO:
-+ [ ] Pre-add exception for Autofirma root certificate, since it attempts a connection to a local wss socket, causing errors in some (not all!) signing websites! See ctt-gob-es/clienteafirma/issues/167
-This is one of the websites that requires it: https://sede.carm.es/cryptoApplet/ayuda/probarautofirma.html
-+ [ ] Auto-setup certificates both in autofirma and in firefox (2 at once in the system store). Add CLI.
 + [ ] Change favicon
-+ [ ] custom home screen, custom bookmarks

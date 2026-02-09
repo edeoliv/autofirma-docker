@@ -27,6 +27,8 @@ ENV _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=gasp"
 # Autofirma configuration
 COPY ./scripts/configure_autofirma.sh /usr/local/bin/configure_autofirma.sh
 RUN /usr/local/bin/configure_autofirma.sh
+RUN mkdir -p /etc/firefox/policies
+COPY ./config/firefox/policies.json /etc/firefox/policies/policies.json
 
 # Configure labwc and desktop icons
 COPY ./config/labwc/autostart /defaults/autostart
@@ -34,10 +36,12 @@ COPY ./config/labwc/rc.xml /defaults/labwc.xml
 RUN mkdir -p /defaults/Desktop
 COPY ./config/desktop/autofirma.desktop /defaults/Desktop/
 COPY ./config/desktop/firefox.desktop /defaults/Desktop/
-
 ENV PIXELFLUX_WAYLAND=true
 
 VOLUME /config/certificates
 
 # Override the files copied by /init. Since it's run on the entrypoint, a build-time COPY won't work!
-RUN echo "cp /defaults/autostart /config/.config/labwc/autostart ; cp /defaults/labwc.xml /config/.config/labwc/rc.xml ; cp /defaults/Desktop/* /config/Desktop/" >> /init
+RUN echo "cp /defaults/autostart /config/.config/labwc/autostart" >> /init
+RUN echo "cp /defaults/labwc.xml /config/.config/labwc/rc.xml" >> /init
+RUN echo "cp /defaults/Desktop/* /config/Desktop/" >> /init
+# RUN echo "bash /usr/local/bin/configure_firefox.sh" >> /init
