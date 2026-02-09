@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y install \
 	openjdk-11-jdk \
 	libnss3-tools \
 	intel-media-va-driver-non-free \
-	pcmanfm-qt
+	pcmanfm-qt && rm -rf /var/lib/apt/lists/*
 
 # Copy AutoFirma from the previous stage.
 COPY --from=autofirma_dl /tmp/autofirma_*.deb /tmp/
