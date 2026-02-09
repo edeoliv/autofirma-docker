@@ -3,7 +3,9 @@ This container runs a remote [sandboxed environment with firefox](https://github
 
 # Usage
 + `./run.sh`
-+ Access from any web browser at http://localhost:5800
++ Access from any web browser at http://localhost:5800 (HTTP) or https://localhost:5801 (HTTPS)
+
+> NOTE: ironically, it performs quite better in Chromium than in Firefox (offering near-native performance)
 
 + If you need any certificates inside the autofirma environment, copy them inside the `certificates/` folder. They'll be available inside the container in `/config/certificates/` (`Home/certificates` in the integrated file picker).
 + For your convenience, you may use the `documents/` folder to copy any files to sign & retrieve the signed result.
@@ -20,7 +22,8 @@ Autofirma is required by many Spanish government websites for online operations,
 
 This setup minimizes risk by running inside a container, instead of in your host machine.
 
-It can also be used to sign documents from within an organization without sharing keys, in a centralized UI. Keep in mind, it should be secured behind a private network,and proper security practices should be performed.
+> [!TIP]
+> It can also be used to sign documents from within an organization without sharing keys, in a centralized UI. Keep in mind, it should be secured behind a private network,and proper security practices should be performed.
 
 # Requirements
 + `docker` https://docs.docker.com/engine/install/
