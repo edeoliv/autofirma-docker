@@ -38,6 +38,9 @@ COPY ./config/desktop/autofirma.desktop /defaults/Desktop/
 COPY ./config/desktop/firefox.desktop /defaults/Desktop/
 ENV PIXELFLUX_WAYLAND=true
 
+# Set favicon to autofirma icon
+RUN cp /usr/lib/Autofirma/Autofirma.png /usr/share/selkies/www/icon.png
+ENV TITLE="AutoFirma-Docker"
 VOLUME /config/certificates
 
 # Override the files copied by /init. Since it's run on the entrypoint, a build-time COPY won't work!

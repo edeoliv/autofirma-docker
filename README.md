@@ -29,7 +29,3 @@ This setup minimizes risk by running inside a container, instead of in your host
 # Requirements
 + `docker` https://docs.docker.com/engine/install/
 + `docker-compose-plugin`
-
----
-# TODO:
-+ [ ] Change favicon
