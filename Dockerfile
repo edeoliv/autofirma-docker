@@ -36,6 +36,8 @@ COPY ./config/labwc/rc.xml /defaults/labwc.xml
 RUN mkdir -p /defaults/Desktop
 COPY ./config/desktop/autofirma.desktop /defaults/Desktop/
 COPY ./config/desktop/firefox.desktop /defaults/Desktop/
+RUN chmod +x /defaults/Desktop/*.desktop
+RUN chown -R abc:abc /defaults/Desktop/
 ENV PIXELFLUX_WAYLAND=true
 
 # Set favicon to autofirma icon
@@ -50,3 +52,5 @@ RUN echo "cp /defaults/autostart /config/.config/labwc/autostart" >> /init
 RUN echo "cp /defaults/labwc.xml /config/.config/labwc/rc.xml" >> /init
 RUN echo "cp /defaults/Desktop/* /config/Desktop/" >> /init
 # RUN echo "bash /usr/local/bin/configure_firefox.sh" >> /init
+
+RUN echo "sudo chown -R abc:abc /defaults/Desktop/" >> /init
